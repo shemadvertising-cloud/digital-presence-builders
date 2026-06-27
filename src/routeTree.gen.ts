@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
+  id: '/performance-marketing',
+  path: '/performance-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/performance-marketing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/performance-marketing'
+  id: '__root__' | '/' | '/performance-marketing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PerformanceMarketingRoute: typeof PerformanceMarketingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/performance-marketing': {
+      id: '/performance-marketing'
+      path: '/performance-marketing'
+      fullPath: '/performance-marketing'
+      preLoaderRoute: typeof PerformanceMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PerformanceMarketingRoute: PerformanceMarketingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
