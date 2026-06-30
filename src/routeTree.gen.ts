@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ShemAdvertisingRouteImport } from './routes/shem-advertising'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as BrandingDesignRouteImport } from './routes/branding-design'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ShemAdvertisingRoute = ShemAdvertisingRouteImport.update({
+  id: '/shem-advertising',
+  path: '/shem-advertising',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
   id: '/performance-marketing',
   path: '/performance-marketing',
@@ -33,34 +39,54 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/branding-design': typeof BrandingDesignRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/shem-advertising': typeof ShemAdvertisingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/branding-design': typeof BrandingDesignRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/shem-advertising': typeof ShemAdvertisingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/branding-design': typeof BrandingDesignRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/shem-advertising': typeof ShemAdvertisingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/branding-design' | '/performance-marketing'
+  fullPaths:
+    | '/'
+    | '/branding-design'
+    | '/performance-marketing'
+    | '/shem-advertising'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/branding-design' | '/performance-marketing'
-  id: '__root__' | '/' | '/branding-design' | '/performance-marketing'
+  to: '/' | '/branding-design' | '/performance-marketing' | '/shem-advertising'
+  id:
+    | '__root__'
+    | '/'
+    | '/branding-design'
+    | '/performance-marketing'
+    | '/shem-advertising'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BrandingDesignRoute: typeof BrandingDesignRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
+  ShemAdvertisingRoute: typeof ShemAdvertisingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/shem-advertising': {
+      id: '/shem-advertising'
+      path: '/shem-advertising'
+      fullPath: '/shem-advertising'
+      preLoaderRoute: typeof ShemAdvertisingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/performance-marketing': {
       id: '/performance-marketing'
       path: '/performance-marketing'
@@ -89,6 +115,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BrandingDesignRoute: BrandingDesignRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
+  ShemAdvertisingRoute: ShemAdvertisingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
