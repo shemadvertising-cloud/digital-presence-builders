@@ -3,6 +3,7 @@ import heroImg from "@/assets/brand-hero.jpg";
 import logoImg from "@/assets/brand-logo.jpg";
 import identityImg from "@/assets/brand-identity.jpg";
 import stationeryImg from "@/assets/brand-stationery.jpg";
+import processImg from "@/assets/brand-process.jpg";
 
 export const Route = createFileRoute("/branding-design")({
   head: () => ({
