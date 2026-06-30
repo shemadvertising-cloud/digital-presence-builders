@@ -3,6 +3,7 @@ import heroImg from "@/assets/brand-hero.jpg";
 import logoImg from "@/assets/brand-logo.jpg";
 import identityImg from "@/assets/brand-identity.jpg";
 import stationeryImg from "@/assets/brand-stationery.jpg";
+import processImg from "@/assets/brand-process.jpg";
 
 export const Route = createFileRoute("/branding-design")({
   head: () => ({
@@ -478,6 +479,207 @@ function BrandingDesignPage() {
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ───── BRANDING PROCESS ───── */}
+      <section className="relative overflow-hidden bg-brand-white py-28 md:py-36">
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute -right-20 bottom-10 ${serif} text-[280px] font-light leading-none text-brand-navy/[0.04] md:text-[420px]`}
+        >
+          05
+        </div>
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-12 md:px-10">
+          <div className="md:col-span-5">
+            <Eyebrow>05 — Our Process</Eyebrow>
+            <h2 className={`mt-5 ${serif} text-4xl font-light leading-[1.05] md:text-6xl`}>
+              From Discovery to{" "}
+              <span className="italic">Final Delivery</span>
+            </h2>
+            <p className="mt-7 text-lg leading-relaxed text-brand-navy/75">
+              Every great brand starts with a clear process. Our step-by-step
+              approach ensures nothing is missed and every decision is rooted in
+              strategy.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-brand-navy/75">
+              From the first conversation to the final brand guidelines, we guide
+              you through five carefully crafted stages designed to extract,
+              shape, and deliver your brand's true identity.
+            </p>
+            <div className="mt-10">
+              <GoldButton>Start Your Project</GoldButton>
+            </div>
+          </div>
+
+          <div className="md:col-span-7">
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-[2rem] bg-brand-navy/10 blur-3xl" aria-hidden />
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-brand-navy/10 shadow-[0_50px_120px_-40px_rgba(16,61,103,0.4)]">
+                <img
+                  src={processImg}
+                  alt="Branding agency process with strategy documents and mood boards"
+                  width={1600}
+                  height={1200}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative mx-auto mt-20 max-w-7xl px-6 md:px-10">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              ["01", "Discovery & Research", "We immerse ourselves in your business, audience, and competitors to uncover what makes you unique."],
+              ["02", "Strategy & Positioning", "We define your brand voice, values, and market position to create a clear strategic foundation."],
+              ["03", "Design Exploration", "Our designers develop multiple visual directions, from logos to color systems, for your review."],
+              ["04", "Refinement & Feedback", "We fine-tune every detail through collaborative feedback sessions until it feels exactly right."],
+              ["05", "Final Delivery & Guidelines", "You receive complete brand assets along with a detailed guidelines document for long-term consistency."],
+            ].map(([num, title, desc]) => (
+              <div
+                key={num}
+                className="group rounded-3xl border border-brand-navy/10 bg-brand-white p-6 text-left transition-all hover:-translate-y-1 hover:border-brand-yellow hover:shadow-[0_30px_80px_-30px_rgba(16,61,103,0.25)]"
+              >
+                <div className={`${serif} text-4xl font-light text-brand-yellow`}>{num}</div>
+                <h3 className="mt-4 font-display text-base font-bold uppercase tracking-[0.12em] text-brand-navy">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-brand-navy/65">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ───── PACKAGES ───── */}
+      <section className="relative overflow-hidden bg-brand-navy py-28 text-brand-white md:py-36">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 30% 30%, rgba(255,192,10,0.8), transparent 40%), radial-gradient(circle at 70% 80%, rgba(255,192,10,0.5), transparent 45%)",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+          <div className="text-center">
+            <Eyebrow light>06 — Packages</Eyebrow>
+            <h2 className={`mt-5 ${serif} text-4xl font-light leading-[1.05] md:text-6xl`}>
+              Branding Packages{" "}
+              <span className="italic text-brand-yellow">Built for Every Stage</span>
+            </h2>
+            <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-brand-white/75">
+              Whether you're launching a new business or refreshing an existing
+              brand, we have a package designed to match your goals and budget.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {/* Starter */}
+            <div className="group relative flex flex-col rounded-[2rem] border border-brand-white/10 bg-brand-white/[0.03] p-8 transition-all hover:-translate-y-1 hover:border-brand-yellow/40 hover:shadow-[0_30px_80px_-30px_rgba(255,192,10,0.25)]">
+              <div className="mb-6 inline-flex w-fit rounded-full bg-brand-yellow/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-yellow">
+                Starter
+              </div>
+              <h3 className={`${serif} text-3xl font-light`}>Brand Starter</h3>
+              <p className="mt-3 text-sm leading-relaxed text-brand-white/65">
+                Perfect for startups and small businesses ready to make their first impression.
+              </p>
+              <ul className="mt-8 flex-1 space-y-4 text-sm text-brand-white/80">
+                {[
+                  "Custom Logo Design (3 concepts)",
+                  "Business Card Design",
+                  "Letterhead & Envelope Design",
+                  "Basic Color Palette & Typography",
+                  "2 Rounds of Revisions",
+                  "Final Files in All Formats",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 text-brand-yellow">✦</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10">
+                <GoldButton href="#connect" className="w-full justify-center">
+                  Get Started
+                </GoldButton>
+              </div>
+            </div>
+
+            {/* Professional */}
+            <div className="group relative flex flex-col rounded-[2rem] border-2 border-brand-yellow bg-brand-navy p-8 shadow-[0_30px_80px_-20px_rgba(255,192,10,0.35)] transition-all hover:-translate-y-1">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-brand-yellow px-5 py-1.5 text-xs font-black uppercase tracking-[0.15em] text-brand-navy">
+                Most Popular
+              </div>
+              <div className="mb-6 inline-flex w-fit rounded-full bg-brand-yellow/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-yellow">
+                Professional
+              </div>
+              <h3 className={`${serif} text-3xl font-light`}>Brand Professional</h3>
+              <p className="mt-3 text-sm leading-relaxed text-brand-white/65">
+                A complete identity system for businesses ready to dominate their market.
+              </p>
+              <ul className="mt-8 flex-1 space-y-4 text-sm text-brand-white/80">
+                {[
+                  "Everything in Starter, plus:",
+                  "Complete Brand Identity System",
+                  "Brand Strategy & Positioning",
+                  "Social Media Branding Kit",
+                  "Brand Guidelines Document",
+                  "Brochure / Flyer Design (2 items)",
+                  "3 Rounds of Revisions",
+                  "Priority Support",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 text-brand-yellow">✦</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10">
+                <GoldButton href="#connect" className="w-full justify-center">
+                  Get Started
+                </GoldButton>
+              </div>
+            </div>
+
+            {/* Enterprise */}
+            <div className="group relative flex flex-col rounded-[2rem] border border-brand-white/10 bg-brand-white/[0.03] p-8 transition-all hover:-translate-y-1 hover:border-brand-yellow/40 hover:shadow-[0_30px_80px_-30px_rgba(255,192,10,0.25)]">
+              <div className="mb-6 inline-flex w-fit rounded-full bg-brand-yellow/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-yellow">
+                Enterprise
+              </div>
+              <h3 className={`${serif} text-3xl font-light`}>Brand Enterprise</h3>
+              <p className="mt-3 text-sm leading-relaxed text-brand-white/65">
+                The full rebrand experience for established companies ready to transform.
+              </p>
+              <ul className="mt-8 flex-1 space-y-4 text-sm text-brand-white/80">
+                {[
+                  "Everything in Professional, plus:",
+                  "In-Depth Brand Audit & Research",
+                  "Complete Rebrand Strategy",
+                  "Unlimited Logo Concepts",
+                  "Full Stationery & Corporate Kit",
+                  "Marketing Collateral Suite",
+                  "Presentation & Pitch Deck Design",
+                  "Unlimited Revisions",
+                  "Dedicated Account Manager",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 text-brand-yellow">✦</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10">
+                <GoldButton href="#connect" className="w-full justify-center">
+                  Talk to Our Team
+                </GoldButton>
               </div>
             </div>
           </div>
