@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
+import { Route as BrandingDesignRouteImport } from './routes/branding-design'
 import { Route as IndexRouteImport } from './routes/index'
 
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
   id: '/performance-marketing',
   path: '/performance-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandingDesignRoute = BrandingDesignRouteImport.update({
+  id: '/branding-design',
+  path: '/branding-design',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/branding-design': typeof BrandingDesignRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/branding-design': typeof BrandingDesignRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/branding-design': typeof BrandingDesignRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/performance-marketing'
+  fullPaths: '/' | '/branding-design' | '/performance-marketing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/performance-marketing'
-  id: '__root__' | '/' | '/performance-marketing'
+  to: '/' | '/branding-design' | '/performance-marketing'
+  id: '__root__' | '/' | '/branding-design' | '/performance-marketing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrandingDesignRoute: typeof BrandingDesignRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/performance-marketing'
       fullPath: '/performance-marketing'
       preLoaderRoute: typeof PerformanceMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/branding-design': {
+      id: '/branding-design'
+      path: '/branding-design'
+      fullPath: '/branding-design'
+      preLoaderRoute: typeof BrandingDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrandingDesignRoute: BrandingDesignRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
 }
 export const routeTree = rootRouteImport
